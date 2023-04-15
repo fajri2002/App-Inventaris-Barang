@@ -36,7 +36,10 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Logout</a>
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -102,9 +105,13 @@
             <!-- /.sidebar -->
         </aside>
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-           @yield('contents')
+            @yield('contents')
         </div>
         <!-- /.content-wrapper -->
 
