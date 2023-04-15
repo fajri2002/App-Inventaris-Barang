@@ -18,24 +18,28 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Kondisi Barang</th>
-                                        <th>Foto</th>
+                                        <th>Jumlah Barang</th>
                                         <th>Deskripsi Barang</th>
                                         <th>Ruangan</th>
+                                        <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($barang as $item)
                                     <tr>
-                                        <td>183</td>
-                                        <td>John Doe</td>
-                                        <td>11-7-2014</td>
-                                        <td><span class="tag tag-success">Approved</span></td>
-                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        <td>Ruang</td>
-                                        <td><button type="button" class="btn btn-block btn-info">Edit</button>
-                                            <button type="button" class="btn btn-block btn-danger">Hapus</button>
+                                        <td>{{$item -> id}}</td>
+                                        <td>{{$item -> nama_barang}}</td>
+                                        <td>{{$item -> kondisi_barang}}</td>
+                                        <td>{{$item -> jumlah_barang}}</td>
+                                        <td>{{$item -> deskripsi_barang}}</td>
+                                        <td>{{$item -> ruangan->nama_ruangan}}</td>
+                                        <td><img src="{{ url('/storage/posts_image/' .$item -> image_url) }}" style="height: 100px;" alt="Card image cap"></td>
+                                        <td><a href="editBarang/{{$item -> id}}"><button type="button" class="btn btn-block btn-info">Edit</button></a>
+                                            <a href="deleteBarang/{{$item -> id}}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                                         </td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

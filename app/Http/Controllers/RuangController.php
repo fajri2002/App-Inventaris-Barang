@@ -19,4 +19,22 @@ class RuangController extends Controller
         $ruangan = Ruangan::all();
         return view('list-ruang', compact("ruangan"));
     }
+
+    public function edit(Request $request, $id){
+        $ruangan = Ruangan::find($id);
+        return view('edit-ruang', compact('ruangan'));
+    }
+
+    public function update(Request $request, $id) {
+        $ruangan = Ruangan::find($id);
+        $ruangan->nama_ruangan = $request->nama_ruangan;
+        $ruangan->save();
+        return redirect('listRuang');
+    }
+
+    public function delete(Request $request, $id) {
+        $ruangan = Ruangan::find($id);
+        $ruangan->delete();
+        return redirect('listRuang');
+    }
 }

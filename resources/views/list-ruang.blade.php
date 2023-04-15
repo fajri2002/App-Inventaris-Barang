@@ -25,8 +25,8 @@
                         <tr>
                             <td>{{$item -> id}}</td>
                             <td>{{$item -> nama_ruangan}}</td>
-                            <td><button type="button" class="btn btn-block btn-info">Edit</button>
-                                <button type="button" class="btn btn-block btn-danger">Hapus</button>
+                            <td><a href="editRuang/{{$item -> id}}"><button type="button" class="btn btn-block btn-info">Edit</button></a>
+                                <a href="deleteRuang/{{$item -> id}}"><button type="button" class="btn btn-block btn-danger">Hapus</button></a>
                             </td>
                         </tr>
                         @endforeach

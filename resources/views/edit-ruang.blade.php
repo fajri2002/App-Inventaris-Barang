@@ -8,12 +8,12 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="POST" action="{{ route('add-ruang') }}">
+            <form method="POST" action="{{ route('update-ruang', [$ruangan->id]) }}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama Ruangan</label>
-                        <input type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Masukkan Nama Ruangan">
+                        <input value="{{$ruangan->nama_ruangan}}" type="text" class="form-control" id="nama_ruangan" name="nama_ruangan" placeholder="Masukkan Nama Ruangan">
                     </div>
                 </div>
                 <!-- /.card-body -->

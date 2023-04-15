@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Ruangan;
 
 class Barang extends Model
 {
@@ -19,6 +20,6 @@ class Barang extends Model
     ];
     
     public function ruangan(){
-        return $this->hasOne(Ruangan::class. 'id_ruang', 'id');
+        return $this->hasOne(Ruangan::class, 'id', 'id_ruang');
     }
 }
